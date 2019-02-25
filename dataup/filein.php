@@ -7,6 +7,7 @@
     require_once "fileread.class.php";
     // require "../Mysql.php";
 
+    echo "数据正在导入，请稍侯...";
     $db = new mysql();
     $table = "pubdata";
     $dataid = "SELECT max(id) FROM ".$table;
@@ -16,11 +17,11 @@
     // 判断职位
     $position = "SELECT position FROM worker WHERE workid={$_SESSION['workid']}";
     if($position == 'boss') {
-        $page = "../SuperAdmin/index.php";
+        $page = "../SuperAdmin/right.php";
     } else if($position == 'admin') {
-        $page = "../Admin/index.php";
+        $page = "../Admin/right.php";
     } else if($position = 'stuff') {
-        $page = "../Stuff/index.php";
+        $page = "../Stuff/right.php";
     }
 
     $file = $_GET['file'];
@@ -33,9 +34,8 @@
     foreach($set as $v) {
         $sql = "";
         $sql .= "INSERT INTO pubdata (id,company,legalrep,regiscap,builddate,managestate,province,city,county,comtype,uscc,
-            tele,moretele,addr,website,email,business,intime) VALUES ('{$id}',{$v}'".date("Y-m-d")."');";
+            tele,moretele,addr,website,email,business,intime,stalker) VALUES ('{$id}',{$v}'".date("Y-m-d")."','1000');";
         $rs = $db->affected_rows($sql);
-        echo $rs."<br>";
         $id++;
     } ?>
         <script language="javascript">

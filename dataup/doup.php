@@ -58,14 +58,14 @@
             $rs = $db->affected_rows($sql);
             if($rs) { ?>
                 <script language="javascript">
-                    alert("文件上传成功，正在导入");
+                    alert("数据导入成功，正在导入");
                     window.location.href="filein.php?file=<?php echo $filesave ?>";
                 </script>
             <?php } else { ?>
                 <script language="javascript">
-                    alert("文件上传失败，请重新上传");
+                    alert("数据导入失败，请重新上传");
                     window.history.back(-1);
-                </script>  
+                </script>
             <?php }
         }
     }
