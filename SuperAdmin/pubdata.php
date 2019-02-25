@@ -7,8 +7,8 @@
 	}
 	require "../Mysql.php";
 
-	if (!isset($page)){$page=1;} //如果没有值,则赋值1
-	else {$page=$_GET['page'];}//获得当前的页面值
+	// if (!isset($page)){$page=1;} //如果没有值,则赋值1
+	// else {$page=$_GET['page'];}//获得当前的页面值
 
 	$db = new mysql();
 
@@ -17,10 +17,9 @@
 	$sql = 'SELECT * FROM '.$table;
 	$rs = $db->getAll($sql);
 	
-	$totalpage = 'SELECT count(*) FROM '.$table;
-	$total = $db->getOne($totalpage);
-	$total = ($total['count(*)'] / 25) + 1; // 总页数
-	foreach($rs as $k){
+	// $totalpage = 'SELECT count(*) FROM '.$table;
+	// $total = $db->getOne($totalpage);
+	// $total = ($total['count(*)'] / 25) + 1; // 总页数
 ?>
 <!DOCTYPE html>
 <html>
@@ -69,6 +68,7 @@
 			<td><span class="glyphicon glyphicon-pencil">&nbsp;标记</td>
 				
 		</tr>
+		<?php foreach($rs as $k){ ?>
 		<tr>
 			<td><?php echo $k['id'];?></td>
 			<td><?php echo $k['company'];?></td>
@@ -79,11 +79,6 @@
 			<td><?php echo $k['signed'];}?></td>
 		</tr>
 	</table>
-	<?php 
-		foreach($total as $v) {
-			?> <a href="pubdata.php?page=<?php echo $v; ?>"><?php echo $v; ?></a>
-		<?php }
-	?>
 </body>
 <script type="text/javascript">
 	$("table").show(2000);

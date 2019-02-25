@@ -73,7 +73,7 @@
 	<table class="table table-bordered table-hover">
 		<tr class="t1">
 			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
-			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名</td>
+			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;法人</td>
 			<td><span class="glyphicon glyphicon-earphone">&nbsp;手机号</td>
 			<td><span class="glyphicon glyphicon-briefcase">&nbsp;公司</td>
 			<td><span class="glyphicon glyphicon-heart-empty">&nbsp;标记</td>
@@ -81,7 +81,7 @@
 		<?php foreach($rs as $k) { ?>
 		<tr>
 			<td><?php echo $k['id']; ?></td>
-			<td><?php echo $k['contact']; ?></td>
+			<td><?php echo $k['legalrep']; ?></td>
 			<td><?php echo $k['tele']; ?></td>
 			<td><?php echo $k['company']; ?></td>
 			<td><?php echo $k['signed']; ?></td>
