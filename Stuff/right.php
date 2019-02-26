@@ -8,9 +8,11 @@
 	
 	require "../Mysql.php";
 	
+	$workid = $_SESSION['workid'];
 	$db = new mysql();
-	$table = 'owndata';
-	$sql = "SELECT * FROM owndata WHERE workid=";
+	$table = "pubdata";
+	$sql = "SELECT * FROM {$table} WHERE stalker='{$workid}'";
+	$rs = $db->getAll($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,6 +49,9 @@
 		.dat{
 			cursor: pointer;
 		}
+		.int{
+			cursor: pointer;
+		}
 		.a:hover{
 			background: #337ab7;
 			color: #fff;
@@ -72,22 +77,26 @@
 	<table class="table table-bordered table-hover">
 		<tr class="t1">
 			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
-			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名</td>
+			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;法人</td>
 			<td><span class="glyphicon glyphicon-earphone">&nbsp;手机号</td>
-			<td><span class="glyphicon glyphicon-briefcase">&nbsp;职业</td>
+			<td><span class="glyphicon glyphicon-briefcase">&nbsp;公司</td>
 			<td><span class="glyphicon glyphicon-heart-empty">&nbsp;满意度</td>
 		</tr>
+		<?php foreach($rs as $k) { ?>
 		<tr>
-			<td class="dat">1</td>
-			<td>1</td>
-			<td>1</td>
-			<td>1</td>
+			<td class="dat"><?php echo $k['id']; ?></td>
+			<td><?php echo $k['legalrep']; ?></td>
+			<td><?php echo $k['tele']; ?></td>
+			<td><?php echo $k['company']; ?></td>
+			
 			<td>
-				<div class="a">A</div>
-				<div class="a">B</div>
-				<div class="a">C</div>
+			<?php if($k['intention']) { echo $k['intention']; } else {?>
+				<div class="a int">A</div>
+				<div class="a int">B</div>
+				<div class="a int">C</div>
 			</td>
 		</tr>
+		<?php }} ?>
 	</table>
 </body>
 <script type="text/javascript">
@@ -106,6 +115,8 @@
 	$('.dat').click(function(){
 		window.location.href = "datainfo.php?id="+$('.dat').html();
 	});
-	
+	$('.int').click(function(){
+		window.location.href = "doSign.php?id=<?php echo $k['id']; ?>&intention="+$('.int').html();
+	});
 </script>
 </html>

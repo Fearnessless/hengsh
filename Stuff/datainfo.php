@@ -7,9 +7,11 @@
 	
 	require "../Mysql.php";
 	
+	$id = $_GET['id'];
 	$db = new mysql();
-	$table = 'owndata';
-	$sql = "SELECT * FROM owndata WHERE workid=";
+	$table = 'pubdata';
+	$sql = "SELECT * FROM {$table} WHERE id=".$id;
+	$rs = $db->getOne($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,91 +47,87 @@
 	<table class="table table-bordered table-hover t">
 		<tr>
 			<td class="t1">商机号：</td>
-			<td ></td>	
+			<td ><?php echo $rs['id']; ?></td>	
 		</tr>
 		<tr>
 			<td class="t1">公司：</td>
-			<td ></td>
+			<td ><?php echo $rs['company']; ?></td>
 		</tr>
 		<tr>
-			<td class="t1">联系人：</td>
-			<td></td>
+			<td class="t1">法人：</td>
+			<td><?php echo $rs['legalrep']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">企业公示的联系电话：</td>
-			<td ></td>
+			<td ><?php echo $rs['tele']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">跟踪人：</td>
-			<td ></td>
+			<td ><?php echo $rs['stalker']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">意向度：</td>
-			<td ></td>
+			<td ><?php echo $rs['intention']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">标记：</td>
-			<td ></td>
+			<td ><?php echo $rs['signed']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">录入时间：</td>
-			<td ></td>
-		</tr>
-		<tr>
-			<td class="t1">法定代表人：</td>
-			<td ></td>
+			<td ><?php echo $rs['intime']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">注册资本：</td>
-			<td ></td>
+			<td ><?php echo $rs['regiscap']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">成立日期：</td>
-			<td ></td>
+			<td ><?php echo $rs['builddate']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">经营状态：</td>
-			<td ></td>
+			<td ><?php echo $rs['managestate']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">省份：</td>
-			<td ></td>
+			<td ><?php echo $rs['province']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">市区：</td>
-			<td ></td>
+			<td ><?php echo $rs['city']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">区县：</td>
-			<td ></td>
+			<td ><?php echo $rs['county']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">公司类型：</td>
-			<td ></td>
+			<td ><?php echo $rs['comtype']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">统一社会信用码：</td>
-			<td ></td>
+			<td ><?php echo $rs['uscc']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">更多联系方式：</td>
-			<td ></td>
+			<td ><?php echo $rs['moretele']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">地址：</td>
-			<td ></td>
+			<td ><?php echo $rs['addr']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">网址：</td>
-			<td ></td>
+			<td ><?php echo $rs['website']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">企业邮箱：</td>
-			<td ></td>
+			<td ><?php echo $rs['email']; ?></td>
 		</tr>
 		<tr>
 			<td class="t1">经营范围：</td>
-			<td ></td>
+			<td ><?php echo $rs['business']; ?></td>
 		</tr>
 	</table>
 </body>

@@ -8,9 +8,10 @@
 <?php
 	require "../Mysql.php";
 
+	$workid = $_SESSION['workid'];
 	$db = new mysql();
 	$table = "pubdata";
-	$sql = "SELECT * FROM ".$table." WHERE stalker='1000'";
+	$sql = "SELECT * FROM {$table} WHERE stalker!='{$workid}'";
 	$rs = $db->getAll($sql);
 	// print_r($rs);
 ?>
@@ -40,6 +41,9 @@
 		.dat{
 			cursor: pointer;
 		}
+		.int{
+			cursor: pointer;
+		}
 		.t1{
 			color: #333;
 			font-size: 16px;
@@ -65,7 +69,7 @@
 	<table class="table table-bordered table-hover">
 		<tr>
 			<td class="t1"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
-			<td class="t1"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名</td>
+			<td class="t1"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;法人</td>
 			<td class="t1"><span class="glyphicon glyphicon-earphone"></span>&nbsp;手机号</td>
 			<td class="t1"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;公司</td>
 			<td class="t1"><span class="glyphicon glyphicon-heart"></span>&nbsp;标记</td>
@@ -74,11 +78,11 @@
 		<?php foreach($rs as $k) { ?>
 		<tr>
 			<td class="dat"><?php echo $k['id']; ?></td>
-			<td><?php echo $k['contact']; ?></td>
+			<td><?php echo $k['legalrep']; ?></td>
 			<td><?php echo $k['tele']; ?></td>
 			<td><?php echo $k['company']; ?></td>
-			<td><?php echo $k['signed']; ?></td>
-			<td><a href=""><span class="glyphicon glyphicon-ok"></span></a></td>
+			<td><?php echo $k['intention']; ?></td>
+			<td><a href="doGet.php?id=<?php echo $k['id']; ?>"><span class="glyphicon glyphicon-ok"></span></a></td>
 		</tr>
 		<?php } ?>
 	</table>
