@@ -17,6 +17,7 @@ class mysql {
     function __construct() {
         $this->connect($this->host, $this->user, $this->pass);
         $this->setChar($this->char);
+        $this->setSafe();
     }
 
     public function __destruct(){
@@ -94,6 +95,11 @@ class mysql {
 
     public function setChar($char) {
         $sql = "set names {$char}";
+        $this->conn->query($sql);
+    }
+
+    public function setSafe() {
+        $sql = "set sql_safe_updates=0";
         $this->conn->query($sql);
     }
 

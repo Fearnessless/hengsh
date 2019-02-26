@@ -7,8 +7,8 @@
 	}
 	require "../Mysql.php";
 
-	// if (!isset($page)){$page=1;} //如果没有值,则赋值1
-	// else {$page=$_GET['page'];}//获得当前的页面值
+	if (!isset($page)){$page=1;} //如果没有值,则赋值1
+	else {$page=$_GET['page'];}//获得当前的页面值
 
 	$db = new mysql();
 
@@ -17,9 +17,10 @@
 	$sql = 'SELECT * FROM '.$table;
 	$rs = $db->getAll($sql);
 	
-	// $totalpage = 'SELECT count(*) FROM '.$table;
-	// $total = $db->getOne($totalpage);
-	// $total = ($total['count(*)'] / 25) + 1; // 总页数
+	//$totalpage = 'SELECT count(*) FROM '.$table;
+	//$total = $db->getOne($totalpage);
+	//$total = ($total['count(*)'] / 25) + 1; // 总页数
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -79,6 +80,7 @@
 			<td><?php echo $k['signed'];}?></td>
 		</tr>
 	</table>
+	
 </body>
 <script type="text/javascript">
 	$("table").show(2000);

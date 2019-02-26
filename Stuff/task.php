@@ -27,6 +27,9 @@
 			text-align: center;
 			height: 32px;
 		}
+		a{
+			color: #000;
+		}
 		.a{
 			width: 30px;
 			height: 25px;
@@ -49,6 +52,9 @@
 		table{
 			display: none;
 		}
+		.dat{
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body class="container">
@@ -69,7 +75,7 @@
 			<td><span class="glyphicon glyphicon-heart-empty">&nbsp;满意度</td>
 		</tr>
 		<tr>
-			<td>1</td>
+			<td class="dat">1</td>
 			<td>1</td>
 			<td>1</td>
 			<td>1</td>
@@ -130,7 +136,9 @@
 	$('.a').click(function(){
 		$(this).parent().parent().hide(1000);
 	});
-
+	$('.dat').click(function(){
+		window.location.href = "datainfo.php?id="+$('.dat').html();
+	});
 	
 </script>
 </html>

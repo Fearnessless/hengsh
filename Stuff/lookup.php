@@ -33,21 +33,6 @@
 		a{
 			color: #000;
 		}
-		.a{
-			width: 30px;
-			height: 25px;
-			display: inline-block;
-			text-decoration: none;
-			margin-left: 10px;
-			font-size:18px;
-			color: #337ab7;
-			cursor:pointer;
-			border-radius: 25px;
-		}
-		.a:hover{
-			background: #337ab7;
-			color: #fff;
-		}
 		.t1{
 			color: #333;
 			font-size: 16px;
@@ -58,6 +43,9 @@
 		}
 		table{
 			display: none;
+		}
+		.dat{
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -79,7 +67,7 @@
 			<td class="t1"><span class="glyphicon glyphicon-heart-empty">&nbsp;满意度</td>
 		</tr>
 		<tr>
-			<td><a href="">1</a></td>
+			<td class="dat">1</td>
 			<td>1</td>
 			<td>1</td>
 			<td>1</td>
@@ -91,9 +79,6 @@
 </body>
 <script type="text/javascript">
 	$("table").show(2000);
-	$('.a').click(function(){
-		$(this).parent().parent().hide(1000);
-	});
 	$('.search').click(function(){
 		if ($('.text').val()=="") {
 			alert("不能为空！");
@@ -101,6 +86,9 @@
 			window.location.href = "search.php?id="+$('.text').val();
 		}
 		
+	});
+	$('.dat').click(function(){
+		window.location.href = "datainfo.php?id="+$('.dat').html();
 	});
 </script>
 </html>

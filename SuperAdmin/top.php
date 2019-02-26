@@ -22,6 +22,9 @@
 			float: right;
 
 		}
+		a{
+			color: #fff;
+		}
 		
 	</style>
 </head>
@@ -29,7 +32,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-8">
-				<h1 class="head-page">数据管理top</h1>
+				<h1 class="head-page">超级管理员</h1>
 			</div>
 			<div class="col-xs-4">
 				<div class="button">

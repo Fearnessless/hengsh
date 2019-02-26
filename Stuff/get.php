@@ -1,11 +1,11 @@
 <?php
-
 	session_start();
-	if (!isset($_SESSION['workid'])) {
+	if (!$_SESSION['workid']) {
 		echo "<script>location='../index.html'</script>";
 		exit;
 	}
-	
+?>
+<?php
 	require "../Mysql.php";
 
 	$db = new mysql();
@@ -37,24 +37,16 @@
 			text-align: center;
 			height: 32px;
 		}
-		.a{
-			width: 30px;
-			height: 25px;
-			display: inline-block;
-			text-decoration: none;
-			margin-left: 10px;
-			font-size:18px;
-			color: #337ab7;
-			cursor:pointer;
-			border-radius: 25px;
-		}
-		.a:hover{
-			background: #337ab7;
-			color: #fff;
+		.dat{
+			cursor: pointer;
 		}
 		.t1{
 			color: #333;
 			font-size: 16px;
+			background: rgb(217, 237, 247);
+		}
+		.t1:hover{
+			background: rgb(217, 237, 247);
 		}
 		table{
 			display: none;
@@ -63,38 +55,46 @@
 </head>
 <body class="container">
 	<div class="input-group div">
-  		<input type="text" class="form-control" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
+  		<input type="text" class="form-control text" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
   		<span class="input-group-addon" id="basic-addon2">
-  			<a href=""><span class="glyphicon glyphicon-search"></span></a>
+  			<span class="glyphicon glyphicon-search search"></span>
   		</span>
  		
 	</div>
 	
 	<table class="table table-bordered table-hover">
-		<tr class="t1">
-			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
-			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;法人</td>
-			<td><span class="glyphicon glyphicon-earphone">&nbsp;手机号</td>
-			<td><span class="glyphicon glyphicon-briefcase">&nbsp;公司</td>
-			<td><span class="glyphicon glyphicon-heart-empty">&nbsp;标记</td>
+		<tr>
+			<td class="t1"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
+			<td class="t1"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名</td>
+			<td class="t1"><span class="glyphicon glyphicon-earphone"></span>&nbsp;手机号</td>
+			<td class="t1"><span class="glyphicon glyphicon-briefcase"></span>&nbsp;公司</td>
+			<td class="t1"><span class="glyphicon glyphicon-heart"></span>&nbsp;标记</td>
+			<td class="t1"><span class="glyphicon glyphicon-ok"></span>&nbsp;领取任务</td>
 		</tr>
 		<?php foreach($rs as $k) { ?>
 		<tr>
-			<td><?php echo $k['id']; ?></td>
-			<td><?php echo $k['legalrep']; ?></td>
+			<td class="dat"><?php echo $k['id']; ?></td>
+			<td><?php echo $k['contact']; ?></td>
 			<td><?php echo $k['tele']; ?></td>
 			<td><?php echo $k['company']; ?></td>
 			<td><?php echo $k['signed']; ?></td>
+			<td><a href=""><span class="glyphicon glyphicon-ok"></span></a></td>
 		</tr>
 		<?php } ?>
 	</table>
 </body>
 <script type="text/javascript">
 	$("table").show(2000);
-	$('.a').click(function(){
-		$(this).parent().parent().hide(1000);
+	$('.search').click(function(){
+		if ($('.text').val()=="") {
+			alert("不能为空！");
+		}else{
+			window.location.href = "search.php?id="+$('.text').val();
+		}
+		
 	});
-
-	
+	$('.dat').click(function(){
+		window.location.href = "datainfo.php?id="+$('.dat').html();
+	});
 </script>
 </html>

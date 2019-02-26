@@ -32,6 +32,7 @@
 			text-align: center;
 			height: 32px;
 		}
+		
 		.a{
 			width: 30px;
 			height: 25px;
@@ -42,6 +43,9 @@
 			color: #337ab7;
 			cursor:pointer;
 			border-radius: 25px;
+		}
+		.dat{
+			cursor: pointer;
 		}
 		.a:hover{
 			background: #337ab7;
@@ -74,7 +78,7 @@
 			<td><span class="glyphicon glyphicon-heart-empty">&nbsp;满意度</td>
 		</tr>
 		<tr>
-			<td>1</td>
+			<td class="dat">1</td>
 			<td>1</td>
 			<td>1</td>
 			<td>1</td>
@@ -91,7 +95,17 @@
 	$('.a').click(function(){
 		$(this).parent().parent().hide(1000);
 	});
-
+	$('.search').click(function(){
+		if ($('.text').val()=="") {
+			alert("不能为空！");
+		}else{
+			window.location.href = "search.php?id="+$('.text').val();
+		}
+		
+	});
+	$('.dat').click(function(){
+		window.location.href = "datainfo.php?id="+$('.dat').html();
+	});
 	
 </script>
 </html>
