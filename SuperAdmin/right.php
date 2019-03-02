@@ -10,7 +10,7 @@
 
 	$table = 'worker';
 	$sql = 'SELECT * FROM '.$table;
-$rs = $db->getAll($sql);
+	$rs = $db->getAll($sql);
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,56 +22,50 @@ $rs = $db->getAll($sql);
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-
-		.div{
-			margin-top: 10px;
-			width: 500px;
-			margin-bottom: 10px;
-
-
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%
+	    }
 		td{
 			text-align: center;
 			height: 32px;
 		}
-		
-		.t1{
-			color: #333;
-			font-size: 16px;
-		}
-		table{
-			display: none;
-		}
-		a{
-
-			height: 22px;
+		.a{	
 			display: inline-block;
 			text-decoration: none;
 			margin-left: 10px;
-			font-size:18px;
-			color: #337ab7;
+			font-size:15px;
+			color: #fff;
 			cursor:pointer;
 			border-radius: 25px;
-			padding-left: 5px;
-			padding-right: 5px;
-
+			padding: 2px;
 		}
-		a:hover{
-			color: #fff;
+		.dat{
+			cursor: pointer;
+		}
+		.a:hover{
+			background: #fff;
+			color: #664033;
 			text-decoration: none;
-			background:#337ab7;
 		}
+		.t1{
+			color: #fff;
+			font-size: 16px;
+		}
+		table{
+			margin-top: 20px;
+			display: none;
+			color: #fff;
+		}
+	    tr:hover{
+	    	background-color:#403344; 
+	    }
 	</style>
 </head>
 <body class="container">
-	<div class="input-group div">
-		<input type="text" class="form-control" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
- 		<span class="input-group-addon" id="basic-addon2">
- 			<a href=""><span class="glyphicon glyphicon-search"></span></a>
- 		</span>
-	</div>
-	
-	<table class="table table-bordered table-hover">
+	<table class="table">
 		<tr class="t1">
 			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
 			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名</td>
@@ -87,10 +81,10 @@ $rs = $db->getAll($sql);
 			<td><?php echo $k['gender'];?></td>
 			<td><?php echo $k['tele'];?></td>
 			<td>
-				<a href="stuffedit.php?workid=<?php echo $k['workid'];?>">修改</a>
-				<?php if($k['workid'] != '1000') { ?><a href="doDel.php?workid=<?php echo $k['workid']; ?>" class="del">删除</a> <?php } ?>
-				<?php if($k['position'] == 'stuff') { ?><a href="adminAct.php?workid=<?php echo $k['workid']; ?>&&act=1" >设置为管理员</a> <?php } ?>
-				<?php if($k['position'] == 'admin') { ?><a href="adminAct.php?workid=<?php echo $k['workid']; ?>&&act=2" >取消管理员资格</a> <?php } ?>
+				<a href="stuffedit.php?workid=<?php echo $k['workid'];?>" class="a">修改</a>
+				<?php if($k['workid'] != '1000') { ?><a href="doDel.php?workid=<?php echo $k['workid']; ?>" class="del a">删除</a> <?php } ?>
+				<?php if($k['position'] == 'stuff') { ?><a href="adminAct.php?workid=<?php echo $k['workid']; ?>&&act=1" class="a ">设置为管理员</a> <?php } ?>
+				<?php if($k['position'] == 'admin') { ?><a href="adminAct.php?workid=<?php echo $k['workid']; ?>&&act=2" class="a ">取消管理员资格</a> <?php } ?>
 			</td>
 		</tr>
 		<?php } ?>
@@ -98,9 +92,6 @@ $rs = $db->getAll($sql);
 </body>
 <script type="text/javascript">
 	$("table").show(2000);
-	$('.a').click(function(){
-		$(this).parent().parent().hide(1000);
-	});
 	$('.del').click(function(){
 		if(confirm("你确定删除吗？")) { } else {  
       return false;

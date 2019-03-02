@@ -26,17 +26,28 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-
-		.div{
-			margin-top: 10px;
-			width: 500px;
-			margin-bottom: 10px;
-
-
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
 		td{
 			text-align: center;
 			height: 32px;
+		}
+		
+		.a{
+			width: 30px;
+			height: 25px;
+			display: inline-block;
+			text-decoration: none;
+			margin-left: 10px;
+			font-size:18px;
+			color: #fff;
+			cursor:pointer;
+			border-radius: 25px;
 		}
 		.dat{
 			cursor: pointer;
@@ -44,29 +55,41 @@
 		.int{
 			cursor: pointer;
 		}
-		.t1{
-			color: #333;
-			font-size: 16px;
-			background: rgb(217, 237, 247);
+		.a:hover{
+			background: #664033;
+			
 		}
-		.t1:hover{
-			background: rgb(217, 237, 247);
+		.t1{
+			color: #fff;
+			font-size: 16px;
 		}
 		table{
+			margin-top: 20px;
 			display: none;
+			color: #fff;
 		}
+		.form-control{
+			background-color:#403344;
+
+		}
+		input::-webkit-input-placeholder {
+	        color: #fff;
+	        font-size: 16px;
+	    }
+	    .s{
+	    	background-color:#403344; 
+	    }
+	    .search{
+	    	color: #fff;
+	    }
+	    tr:hover{
+	    	background-color: #403344;
+	    }
 	</style>
 </head>
 <body class="container">
-	<div class="input-group div">
-  		<input type="text" class="form-control text" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
-  		<span class="input-group-addon" id="basic-addon2">
-  			<span class="glyphicon glyphicon-search search"></span>
-  		</span>
- 		
-	</div>
 	
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered">
 		<tr>
 			<td class="t1"><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
 			<td class="t1"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;法人</td>
@@ -89,14 +112,6 @@
 </body>
 <script type="text/javascript">
 	$("table").show(2000);
-	$('.search').click(function(){
-		if ($('.text').val()=="") {
-			alert("不能为空！");
-		}else{
-			window.location.href = "search.php?id="+$('.text').val();
-		}
-		
-	});
 	$('.dat').click(function(){
 		window.location.href = "datainfo.php?id="+$('.dat').html();
 	});

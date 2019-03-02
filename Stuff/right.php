@@ -1,13 +1,10 @@
 <?php
-
 	session_start();
 	if (!isset($_SESSION['workid'])) {
 		echo "<script>location='../index.html'</script>";
 		exit;
 	}
-	
 	require "../Mysql.php";
-	
 	$workid = $_SESSION['workid'];
 	$db = new mysql();
 	$table = "pubdata";
@@ -24,17 +21,16 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-
-		.div{
-			margin-top: 10px;
-			width: 500px;
-			margin-bottom: 10px;
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%
+	    }
 		td{
 			text-align: center;
 			height: 32px;
 		}
-		
 		.a{
 			width: 30px;
 			height: 25px;
@@ -42,39 +38,33 @@
 			text-decoration: none;
 			margin-left: 10px;
 			font-size:18px;
-			color: #337ab7;
+			color: #fff;
 			cursor:pointer;
 			border-radius: 25px;
 		}
 		.dat{
 			cursor: pointer;
 		}
-		.int{
-			cursor: pointer;
-		}
 		.a:hover{
-			background: #337ab7;
-			color: #fff;
+			background: #664033;
+			
 		}
 		.t1{
-			color: #333;
+			color: #fff;
 			font-size: 16px;
 		}
 		table{
+			margin-top: 20px;
 			display: none;
+			color: #fff;
 		}
+	    tr:hover{
+	    	background-color:#403344; 
+	    }
 	</style>
 </head>
-<body class="container">
-	<div class="input-group div">
-  		<input type="text" class="form-control" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
-  		<span class="input-group-addon" id="basic-addon2">
-  			<a href=""><span class="glyphicon glyphicon-search"></span></a>
-  		</span>
- 		
-	</div>
-	
-	<table class="table table-bordered table-hover">
+<body class="container">	
+	<table class="table table-bordered">
 		<tr class="t1">
 			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
 			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;法人</td>
@@ -88,12 +78,11 @@
 			<td><?php echo $k['legalrep']; ?></td>
 			<td><?php echo $k['tele']; ?></td>
 			<td><?php echo $k['company']; ?></td>
-			
 			<td>
 			<?php if($k['intention']) { echo $k['intention']; } else {?>
-				<div class="a int">A</div>
-				<div class="a int">B</div>
-				<div class="a int">C</div>
+				<div class="a intA">A</div>
+				<div class="a intB">B</div>
+				<div class="a intC">C</div>
 			</td>
 		</tr>
 		<?php }} ?>
@@ -115,8 +104,21 @@
 	$('.dat').click(function(){
 		window.location.href = "datainfo.php?id="+$('.dat').html();
 	});
-	$('.int').click(function(){
-		window.location.href = "doSign.php?id=<?php echo $k['id']; ?>&intention="+$('.int').html();
+	$('.intA').click(function(){
+		var a=$(this).index;
+		alert(a);
+		window.location.href = "doSign.php?id="+$(".dat:eq(3)").html()+"&intention=A";
 	});
+	$('.intB').click(function(){
+		var a=$(this).index;
+		alert(a);
+		window.location.href = "doSign.php?id="+$(".dat:eq(3)").html()+"&intention=B";
+	});
+	$('.intC').click(function(){
+		var a=$(this).index;
+		window.location.href = "doSign.php?id="+$(".dat:eq(3)").html()+"&intention=C";
+	});
+
+	
 </script>
 </html>

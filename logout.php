@@ -7,5 +7,5 @@ setcookie('PHPSESSID','',time()-1,'/');
 
 session_destroy();
 
-echo "<script>window.location.replace('index.html');</script>";
+echo "<script>window.location.replace('index.php');</script>";
 ?>

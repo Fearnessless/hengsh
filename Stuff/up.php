@@ -15,31 +15,27 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-		*{
-			font-family: 微软雅黑;
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
-		p{
-			text-align: center;
-			font-size: 18px;
-			margin-top: 18px;
-		}
-		hr{
-			margin: 0px;
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
+		input{	
+			background:#BE9363;
+			background-color:#7A615E;
+			padding-left: 5px;
+			color: #fff;
 		}
 		table{
 			font-size: 16px;
 			width: 100%;
 			height: 200px;
 		}
-		.tr{
-			border-bottom: 1px solid #ccc;
-		}
 		td{
 			text-align:right;
 			height: 20px;
-		}
-		.sel{
-			text-align: left;
 		}
 		th{
 			text-align: center;
@@ -54,17 +50,20 @@
 		.td1{
 			margin-top: 20px;
 			width: 250px;
+			color: #fff;
 			
 		}
 		.td2{
 			padding-right:300px;
 			width: 500px;
 		}
-		.btn{
+		.sub{
 			width: 100px;
-		}
-		.wen{
-			border: 0px;
+			height: 30px;
+			color: #fff;
+			background: #BE9363;
+			border-radius: 3px;
+			border: 1px solid #BA9162;
 		}
 	</style>
 </head>
@@ -95,7 +94,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" class="td2">
-						<input type="submit" name="" class="btn btn-info" value="提交">	
+						<input type="submit" name="" class="sub" value="提交">	
 				</td>
 			</tr>
 		</table>

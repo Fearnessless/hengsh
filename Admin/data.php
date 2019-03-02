@@ -23,33 +23,37 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-		.div{
-			margin-top: 10px;
-			width: 500px;
-			margin-bottom: 10px;
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
 		td{
 			text-align: center;
 			height: 32px;
 		}
+		.dat{
+			cursor: pointer;
+		}
+
 		.t1{
-			color: #333;
+			color: #fff;
 			font-size: 16px;
 		}
 		table{
+			margin-top: 20px;
 			display: none;
+			color: #fff;
 		}
+	    tr:hover{
+	    	background-color:#403344; 
+	    }
 	</style>
 </head>
 <body class="container">
-	<div class="input-group div">
-		<input type="text" class="form-control" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
- 		<span class="input-group-addon" id="basic-addon2">
- 			<a href=""><span class="glyphicon glyphicon-search"></span></a>
- 		</span>
-	</div>
-	
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered">
 		<tr class="t1">
 			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
 			<td><span class="glyphicon glyphicon-th-large"></span>&nbsp;&nbsp;公司</td>
@@ -75,17 +79,5 @@
 </body>
 <script type="text/javascript">
 	$("table").show(2000);
-	$('.a').click(function(){
-		$(this).parent().parent().hide(1000);
-	});
-	$('.del').click(function(){
-		if(confirm("你确定删除吗？")) {  
-            alert("已删除");  
-        }  
-        else {  
-          return false;
-        }  
-	});
-	
 </script>
 </html>

@@ -14,33 +14,66 @@
 	<script src="bs/js/jquery.min.js"></script>
 	<script src="bs/js/bootstrap.js"></script>
 	<style type="text/css">
+		body{
+			background: linear-gradient(to bottom right, #3E3246,#6E3F47);
+		}
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
 		a{
 			text-decoration: none;
 			display: inline-block;
+			color: #B7AFB6;
+			font-size: 16px;
+			height: 40px;
+			width: 144px;
+			padding-top: 10px;
+		}
+		a:visited{
+        	color:#fff;
+        	text-decoration: none;
+		}
+		a:hover{
+			color: #fff;
+			text-decoration: none;
 		}
 		table{
-			width: 100%;
+			width: 144px;
 			text-align: center;
+			margin-left: 3px;
 		}
+		td{
+			height:40px;
+		}
+		tr{
+			border-bottom: 1px solid #604951;
+		}
+		tr:hover{
+			background: #302631;
+		}
+		
 	</style>
 </head>
 <body>
-		<table class="table">
-		<tr class="active">
-			<td><a href="get.php" class="btn  btn-warning" target="right">获得数据</a></td>
+	<div>
+		<table>
+		<tr>
+			<td><a href="get.php" target="right">获得数据</a></td>
 		</tr>
-		<tr class="success">
-			<td><a href="right.php" class="btn  btn-warning" target="right">查看数据</a></td>
+		<tr>
+			<td><a href="right.php" target="right">查看数据</a></td>
 		</tr>
-		<tr class="warning">
-			<td><a href="task.php" class="btn  btn-warning" target="right">查看任务</a></td>
+		<tr>
+			<td><a href="task.php" target="right">查看任务</a></td>
 		</tr>
-		<tr class="info">
-			<td><a href="lookup.php" class="btn  btn-warning" target="right">查看记录</a></td>
+		<tr>
+			<td><a href="lookup.php" target="right">查看记录</a></td>
 		</tr>
-		<tr class="active">
-			<td><a href="up.php" class="btn  btn-warning" target="right">上传数据</a></td>
+		<tr>
+			<td><a href="up.php" target="right">上传数据</a></td>
 		</tr>
 		</table>
+	</div>	
 </body>
 </html>

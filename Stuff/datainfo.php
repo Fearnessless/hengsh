@@ -23,28 +23,36 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
+
+		}
 		td{
 			text-align: center;
 			height: 32px;
+			color:  #fff;
 		}
-		.t1{
-			color: #333;
-			font-size: 16px;
-			background: rgb(217, 237, 247);
-			width: 40%;
-			text-align: right;
-		}
-		.t1:hover{
-			background: rgb(217, 237, 247);
-		}
+		
 		table{
+			
 			margin: 20px;
 			display: none;
 		}
+		.t{
+			width: 800px;
+			margin-left: 180px;
+		}
+		.t1{
+			width: 300px;
+			
+		}
+		tr:hover{
+	    	background-color: #403344;
+	    }
 	</style>
 </head>
 <body class="container">	
-	<table class="table table-bordered table-hover t">
+	<table class="table table-bordered t">
 		<tr>
 			<td class="t1">商机号：</td>
 			<td ><?php echo $rs['id']; ?></td>	

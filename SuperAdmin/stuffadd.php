@@ -23,16 +23,22 @@ $id[0]++;
 	<script src="bs/js/jquery.min.js"></script>
 	<script src="bs/js/bootstrap.js"></script>
 	<style type="text/css">
-		*{
-			font-family: 微软雅黑;
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
 		p{
 			text-align: center;
 			font-size: 18px;
 			margin-top: 18px;
+			color: #fff;
 		}
 		hr{
 			margin: 0px;
+			background-color: #BA9162;
 		}
 		table{
 			font-size: 16px;
@@ -52,27 +58,37 @@ $id[0]++;
 		th{
 			text-align: center;
 		}
-		input{
+		input,select{
 			height: 32px;
 			width: 100%;
 			border-radius: 4px;
 			font-size: 14px;
 			border: 1px solid #ccc;
+			background-color:#7A615E;
+			padding-left: 5px;
+			color: #fff;
 		}
 		.td1{
 			margin-top: 20px;
 			width: 250px;
+			color: #fff;
 			
 		}
 		.td2{
 			padding-right:300px;
 			width: 500px;
 		}
-		.btn{
-			width: 100px;
-		}
+		
 		select{
 			width: 200px;
+		}
+		.sub{
+			width: 100px;
+			height: 30px;
+			color: #fff;
+			background: #BE9363;
+			border-radius: 3px;
+			border: 1px solid #7A615E;
 		}
 	</style>
 </head>
@@ -82,7 +98,7 @@ $id[0]++;
 	<form action="doAdd.php" method="post">
 		<table>
 			<tr>
-				<td class="td1">姓名：</td>
+				<td class="td1 name">姓名：</td>
 				<td class="td2">
 					<input type="text" name="workname">
 				</td>
@@ -94,13 +110,13 @@ $id[0]++;
 				</td>
 			</tr>
 			<tr>
-				<td class="td1">密码：</td>
+				<td class="td1 password">密码：</td>
 				<td class="td2">
 					<input type="text" name="password">
 				</td>
 			</tr>
 			<tr>
-				<td class="td1">联系方式：</td>
+				<td class="td1 tele">联系方式：</td>
 				<td class="td2">
 					<input type="text" name="tele">
 				</td>
@@ -125,10 +141,57 @@ $id[0]++;
 			</tr>
 			<tr>
 				<td colspan="2" class="td2">
-						<input type="submit" name="" class="btn btn-info" value="提交">			
+						<input type="submit" name="" class="sub" value="提交">			
 				</td>
 			</tr>
 		</table>
 	</form>
 </body>
+<script type="text/javascript">
+	$(".name").blur(function(){
+		if ($(this).val()=="") {
+			alert("名字不能为空！！！");
+		}else{
+			i++;
+		}
+	});
+	$(".password").blur(function(){
+		if ($(this).val()=="") {
+			alert("密码不能为空！！！");
+		}else{
+			i++;
+		}
+	});
+	$(".tele").blur(function(){
+		if ($(this).val()=="") {
+			alert("联系方式不能为空！！！");
+		}else{
+			i++;
+		}
+	});
+	$(".sub").click(function(){
+		i=0;
+		if ($(".name").val()=="") {
+			alert("名字不能为空！！！");
+			
+		}else{
+			i++;
+		}
+		if ($(".password").val()=="") {
+			alert("密码不能为空！！！");
+			
+		}else{
+			i++;
+		}
+		if ($(".tele").val()=="") {
+			alert("联系方式不能为空！！！");
+			
+		}else{
+			i++;
+		}
+		if (i!=3) {
+			return false;
+		}
+	});
+</script>
 </html>

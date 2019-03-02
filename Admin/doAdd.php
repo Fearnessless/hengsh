@@ -30,7 +30,7 @@ $rs = $db->autoExecute($table, $array, $act='insert');
 if($rs) { ?>
     <script language="javascript">
             alert("员工添加成功！");
-            window.location.href="index.php";
+            parent.location.href="index.php";
     </script>
 <?php } else { ?>
     <script language="javascript">

@@ -21,55 +21,50 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-
-		.div{
-			margin-top: 10px;
-			width: 500px;
-			margin-bottom: 10px;
-
-
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
 		td{
 			text-align: center;
 			height: 32px;
 		}
-		
-		.t1{
-			color: #333;
-			font-size: 16px;
-		}
-		table{
-			display: none;
-		}
-		a{
-			height: 22px;
+		.a{
+			width: 42px;
+			height: 26px;
 			display: inline-block;
 			text-decoration: none;
 			margin-left: 10px;
 			font-size:18px;
-			color: #337ab7;
+			color: #fff;
 			cursor:pointer;
 			border-radius: 25px;
-			padding-left: 5px;
-			padding-right: 5px;
-			
+			padding-top: 2px;
 		}
-		a:hover{
-			color: #fff;
+		.a:hover{
+			background: #fff;
+			color: #664033;
 			text-decoration: none;
-			background:#337ab7;
 		}
+		.t1{
+			color: #fff;
+			font-size: 16px;
+		}
+		table{
+			margin-top: 20px;
+			display: none;
+			color: #fff;
+		}
+	    tr:hover{
+	    	background-color:#403344; 
+	    }
 	</style>
 </head>
 <body class="container">
-	<div class="input-group div">
-		<input type="text" class="form-control" placeholder="输入搜索关键词" aria-describedby="basic-addon2">
- 		<span class="input-group-addon" id="basic-addon2">
- 			<a href=""><span class="glyphicon glyphicon-search"></span></a>
- 		</span>
-	</div>
-	
-	<table class="table table-bordered table-hover">
+	<table class="table table-bordered">
 		<tr class="t1">
 			<td><span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;&nbsp;编号</td>
 			<td><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;姓名</td>
@@ -84,39 +79,14 @@
 			<td>1</td>
 			<td>1</td>
 			<td>
-				<a href="Srevamp.html">修改</a>
-				<a href="" class="del">删除</a>
+				<a href="Srevamp.php" class="a">修改</a>
+				<a href="" class="del a">删除</a>
 				
 			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>
-				<a href="">修改</a>
-				<a href="">删除</a>
-				
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td>
-				<a href="">修改</a>
-				<a href="">删除</a>
-			</td>
-		</tr>
 	</table>
 </body>
 <script type="text/javascript">
 	$("table").show(2000);
-	$('.a').click(function(){
-		$(this).parent().parent().hide(1000);
-	});
 	$('.del').click(function(){
 		if(confirm("你确定删除吗？")) {  
             alert("已删除");  
@@ -125,6 +95,5 @@
           return false;
         }  
 	});
-	
 </script>
 </html>

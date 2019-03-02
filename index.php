@@ -25,8 +25,8 @@
 	        position:fixed;  
 	        top:0;  
 	        left:0;  
-	        z-index:1;  
-	        background:url("1.gif");
+	        z-index:1; 
+	        background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 	        background-size: 100%;  
     } 
     .Lo p{
@@ -64,6 +64,19 @@
 		width: 350%;
 		border-radius: 5px;
 	}
+	.sub{
+			width: 100px;
+			height: 30px;
+			color: #fff;
+			background: #BE9363;
+			border-radius: 3px;
+			border: 1px solid #7A615E;
+	}
+	input{
+		background: #D1AD81;
+		border: 1px solid #ccc;
+		padding-left: 5px;
+	}
 	</style>
 </head>
 <body>
@@ -79,7 +92,7 @@
 		      			<td><input type="password" name="password" placeholder="请输入密码" class="password"></td>
 		      		</tr>
 		      		<tr>
-		      			<td><input type="submit" class="btn btn-info" value="登录" id="login"></td>
+		      			<td><input type="submit" class="sub" value="登录" id="login"></td>
 		      		</tr>
 		      	</table>
 	      	</form>
@@ -95,10 +108,10 @@
 		username=$('.username').val();
 		if (username=="") {
 			$('.th').html('用户名不能为空');
-			$('.th').css({'color':'#f00'});
+			$('.th').css({'color':'#433346'});
 		}else{
 			$('.th').html('账 号 登 录');
-			$('.th').css({'color':'#333'});
+			$('.th').css({'color':'#433346'});
 		}
 		
 	});
@@ -106,10 +119,10 @@
 		password=$('.password').val();
 		if (password=="") {
 			$('.th').html('密码不能为空');
-			$('.th').css({'color':'#f00'});
+			$('.th').css({'color':'#433346'});
 		}else{
 			$('.th').html('账 号 登 录');
-			$('.th').css({'color':'#333'});
+			$('.th').css({'color':'#433346'});
 		}
 		
 	});

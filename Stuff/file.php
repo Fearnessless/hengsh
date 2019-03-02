@@ -15,9 +15,13 @@
 	<script src="bs/js/bootstrap.js"></script>
 	<script src="jquery.js"></script>
 	<style type="text/css">
-		*{
-			font-family: 微软雅黑;
+		body{
+			background-image: linear-gradient(to bottom right, #5A495C,#CD9F64);
 		}
+		html,body{
+	    	height: 100%;
+	    	width: 100%;
+	    }
 		table{
 			font-size: 16px;
 			width: 100%;
@@ -27,17 +31,27 @@
 			text-align:center;	
 			width: 500px;
 		}
-		.input{
-			font-size: 14px;
-		}
+		
 		.btn{
 			text-align: left;
 		}
 		.file{
 			padding-left: 20px;
 		}
+		input{
+			color: #fff;
+		}
 		.p{
 			text-align: right;
+			color: #fff;
+		}
+		.sub{
+			width: 100px;
+			height: 30px;
+			color: #fff;
+			background: #BE9363;
+			border-radius: 3px;
+			border: 1px solid #BA9162;
 		}
 	</style>
 </head>
@@ -54,7 +68,7 @@
 					<p><input type="file" name="upfile" id="upfile"></p>
 				</td>
 				<td class="btn">
-					<p><input type="submit" name="" class="btn btn-info " value="提交"></p>
+					<p><input type="submit" name="" class="sub" value="提交"></p>
 				</td>
 			</tr>
 		</table>
